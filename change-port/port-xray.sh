@@ -86,8 +86,8 @@ sed -i "s/$vless/$tls1/g" /usr/local/etc/xray/vless.json
 sed -i "s/   - Xray Vless Grpc Tls     : $vless/   - Xray Vless Grpc Tls     : $none1/g" /root/log-install.txt
 iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $vless -j ACCEPT
 iptables -D INPUT -m state --state NEW -m udp -p udp --dport $vless -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $tls1 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport $tls1 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $none1 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport $none1 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
@@ -179,10 +179,10 @@ exit 0
 fi
 cek=$(netstat -nutlp | grep -w $tls1)
 if [[ -z $cek ]]; then
-sed -i "s/$tlsvl/$tls1/g" /usr/local/etc/xray/vlessws.json
-sed -i "s/   - Xray Vless Ws Tls       : $tlsvl/   - Xray Vless Ws Tls       : $tls1/g" /root/log-install.txt
-iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $tlsvl -j ACCEPT
-iptables -D INPUT -m state --state NEW -m udp -p udp --dport $tlsvl -j ACCEPT
+sed -i "s/$tlsv1/$tls1/g" /usr/local/etc/xray/vlessws.json
+sed -i "s/   - Xray Vless Ws Tls       : $tlsv1/   - Xray Vless Ws Tls       : $tls1/g" /root/log-install.txt
+iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $tlsv1 -j ACCEPT
+iptables -D INPUT -m state --state NEW -m udp -p udp --dport $tlsv1 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $tls1 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport $tls1 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
@@ -203,10 +203,10 @@ exit 0
 fi
 cek=$(netstat -nutlp | grep -w $none1)
 if [[ -z $cek ]]; then
-sed -i "s/$nonevl/$none1/g" /usr/local/etc/xray/vnone.json
-sed -i "s/   - Xray Vless Ws None Tls  : $nonevl/   - Xray Vless Ws None Tls  : $none1/g" /root/log-install.txt
-iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $nonevl -j ACCEPT
-iptables -D INPUT -m state --state NEW -m udp -p udp --dport $nonevl -j ACCEPT
+sed -i "s/$nonev1/$none1/g" /usr/local/etc/xray/vnone.json
+sed -i "s/   - Xray Vless Ws None Tls  : $nonev1/   - Xray Vless Ws None Tls  : $none1/g" /root/log-install.txt
+iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $nonev1 -j ACCEPT
+iptables -D INPUT -m state --state NEW -m udp -p udp --dport $nonev1 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $none1 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport $none1 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
