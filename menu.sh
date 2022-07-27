@@ -133,6 +133,8 @@ echo -e " [\e[36m•3\e[0m] SSR & SS Menu         [\e[36m•9\e[0m] Change Port"
 echo -e " [\e[36m•4\e[0m] Vmess & Vless Menu    [\e[36m10\e[0m] Add Domain"
 echo -e " [\e[36m•5\e[0m] Trojan Menu           [\e[36m11\e[0m] Log Create Config"
 echo -e " [\e[36m•6\e[0m] System Menu           [\e[31m12\e[0m] \e[31mREBOOT\033[0m"
+echo -e ""
+echo -e " [\e[36m•99\e[0m] DNS GEOLOCATION MENU by SAMVPN\033[0m"
 echo -e "\e[36m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " \e[36mClient Name    \E[0m: $username"
 echo -e " \e[36mScript Expired \E[0m: $exp"
@@ -158,5 +160,6 @@ case $opt in
        menu
  ;;
 12) clear ; reboot ;;
+99) clear ; net ;;
 x) exit ;;
 esac
