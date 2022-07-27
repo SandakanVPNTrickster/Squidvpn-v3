@@ -82,7 +82,7 @@ exit 0
 fi
 cek=$(netstat -nutlp | grep -w $none1)
 if [[ -z $cek ]]; then
-sed -i "s/$vless/$tls1/g" /usr/local/etc/xray/vless.json
+sed -i "s/$vless/$none1/g" /usr/local/etc/xray/vless.json
 sed -i "s/   - Xray Vless Grpc Tls     : $vless/   - Xray Vless Grpc Tls     : $none1/g" /root/log-install.txt
 iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport $vless -j ACCEPT
 iptables -D INPUT -m state --state NEW -m udp -p udp --dport $vless -j ACCEPT
