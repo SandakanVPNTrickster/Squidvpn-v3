@@ -83,7 +83,6 @@ WKT=$(curl -s ipinfo.io/timezone )
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
 IPVPS=$(curl -s ipinfo.io/ip )
-dns=$(cat /etc/resolvconf/resolv.conf.d/head)
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
 cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
@@ -117,7 +116,6 @@ echo -e "\e[36m Date                 \e[0m:  $DATE"
 echo -e "\e[36m Telegram             \e[0m:  @SandakanVPNTrickster"
 echo -e "\e[36m Script Version       \e[0m:  Version 3.0"
 echo -e "\e[36m Certificate status   \e[0m:  Expired in $certifacate days"
-echo -e "\e[36m DNS                  \e[0m: $dns"
 echo -e "\e[36m Provided By          \e[0m:  $creditt"
 echo -e "\e[36m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\e[36m Traffic        Today      Yesterday     Month"
